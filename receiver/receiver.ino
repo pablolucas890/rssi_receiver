@@ -20,7 +20,7 @@ const int pinBotao = 4;  // Pino digital 4
 RCSwitch mySwitch = RCSwitch();
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600);  
   
   if (ELECHOUSE_cc1101.getCC1101()) {  // Check the CC1101 Spi connection.
     Serial.println("Connection OK");
@@ -51,12 +51,12 @@ void setup() {
   }
 }
 void loop() {
-  delay(1000);
+  delay(50);
   if (todos_configurados) {
     if (mySwitch.available()) {
       if (mySwitch.getReceivedValue() == enlace_1) {
-        Serial.print("RSSI ENLACE 1: ");
-        Serial.println(ELECHOUSE_cc1101.getRssi());
+        Serial.print(ELECHOUSE_cc1101.getRssi());
+        Serial.println(", 2, 1, 0.050");
       }
       if (mySwitch.getReceivedValue() == enlace_2) {
         Serial.print("RSSI ENLACE 2: ");
